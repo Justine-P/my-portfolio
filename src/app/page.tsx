@@ -2,6 +2,7 @@ import ContactForm from "@/components/ContactForm";
 import MotionReveal from "@/components/MotionReveal";
 import SectionHeading from "@/components/SectionHeading";
 import { projects, siteConfig, skillGroups } from "@/data/portfolio";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -41,7 +42,7 @@ export default function Home() {
       </header>
 
       <main className="mx-auto w-full max-w-6xl px-6 pb-28">
-        <section id="hero" className="grid min-h-[88vh] items-center py-20">
+        <section id="hero" className="grid min-h-[88vh] items-center gap-10 py-20 lg:grid-cols-[1fr_auto]">
           <MotionReveal className="max-w-3xl">
             <p className="mb-6 inline-flex rounded-full border border-cyan-300/30 bg-cyan-400/10 px-4 py-1.5 text-xs font-medium tracking-wide text-cyan-200">
               Available for freelance and full-time roles
@@ -66,6 +67,18 @@ export default function Home() {
               >
                 Contact Me
               </a>
+            </div>
+          </MotionReveal>
+          <MotionReveal className="mx-auto lg:mx-0" delay={0.15}>
+            <div className="relative h-64 w-64 overflow-hidden rounded-full border-2 border-cyan-300/40 shadow-[0_20px_55px_-25px_rgba(34,211,238,0.75)] sm:h-72 sm:w-72">
+              <Image
+                src="/profile.png"
+                alt="Justine Camello profile photo"
+                fill
+                sizes="(max-width: 640px) 256px, 288px"
+                priority
+                className="object-cover"
+              />
             </div>
           </MotionReveal>
         </section>
