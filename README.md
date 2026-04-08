@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Justine Camello - Developer Portfolio
 
-## Getting Started
+A modern, responsive developer portfolio built with Next.js App Router, Tailwind CSS, Framer Motion, and Neon PostgreSQL for contact form submissions.
 
-First, run the development server:
+## Tech Stack
+
+- Next.js (App Router)
+- Tailwind CSS
+- Framer Motion
+- Neon PostgreSQL
+- TypeScript
+
+## Folder Structure
+
+```txt
+justine-portfolio/
+  db/
+    schema.sql
+  public/
+  src/
+    app/
+      api/
+        contact/
+          route.ts
+      globals.css
+      layout.tsx
+      page.tsx
+    components/
+      ContactForm.tsx
+      MotionReveal.tsx
+      SectionHeading.tsx
+    data/
+      portfolio.ts
+  .env.example
+  package.json
+```
+
+## Setup Instructions
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Create env file:
+
+```bash
+cp .env.example .env.local
+```
+
+On Windows PowerShell:
+
+```powershell
+Copy-Item .env.example .env.local
+```
+
+3. Add your Neon connection string in `.env.local`:
+
+```env
+DATABASE_URL="postgresql://<user>:<password>@<host>/<database>?sslmode=require"
+```
+
+4. Create the database table in Neon using `db/schema.sql`.
+
+5. Run the dev server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `DATABASE_URL`: Neon PostgreSQL connection string used by `src/app/api/contact/route.ts`.
 
-## Learn More
+## Contact Form Database Schema
 
-To learn more about Next.js, take a look at the following resources:
+Run this SQL in your Neon database:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```sql
+CREATE TABLE IF NOT EXISTS contact_submissions (
+  id BIGSERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  message TEXT NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment (Vercel)
 
-## Deploy on Vercel
+1. Push project to GitHub.
+2. Import repository in Vercel.
+3. Add `DATABASE_URL` in Vercel project settings.
+4. Deploy.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is production-ready for Vercel with serverless API routes.

@@ -1,65 +1,193 @@
-import Image from "next/image";
+import ContactForm from "@/components/ContactForm";
+import MotionReveal from "@/components/MotionReveal";
+import SectionHeading from "@/components/SectionHeading";
+import { projects, siteConfig, skillGroups } from "@/data/portfolio";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <div className="bg-zinc-950 text-zinc-100">
+      <header className="sticky top-0 z-20 border-b border-zinc-800/80 bg-zinc-950/85 backdrop-blur">
+        <nav className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
+          <a href="#hero" className="text-sm font-semibold tracking-wide text-cyan-300">
+            {siteConfig.name}
+          </a>
+          <ul className="hidden gap-6 text-sm text-zinc-300 md:flex">
+            <li>
+              <a href="#about" className="transition hover:text-cyan-300">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#projects" className="transition hover:text-cyan-300">
+                Projects
+              </a>
+            </li>
+            <li>
+              <a href="#skills" className="transition hover:text-cyan-300">
+                Skills
+              </a>
+            </li>
+            <li>
+              <a href="#contact" className="transition hover:text-cyan-300">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main className="mx-auto w-full max-w-6xl px-6 pb-24">
+        <section id="hero" className="grid min-h-[80vh] items-center py-16">
+          <MotionReveal className="max-w-3xl">
+            <p className="mb-4 inline-flex rounded-full border border-cyan-400/40 px-4 py-1 text-sm text-cyan-300">
+              Available for freelance and full-time roles
+            </p>
+            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl">
+              {siteConfig.name}
+            </h1>
+            <p className="mt-4 text-xl text-cyan-300 sm:text-2xl">{siteConfig.role}</p>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-300">
+              {siteConfig.intro}
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="#projects"
+                className="rounded-lg bg-cyan-400 px-6 py-3 font-semibold text-zinc-950 transition hover:bg-cyan-300"
+              >
+                View Projects
+              </a>
+              <a
+                href="#contact"
+                className="rounded-lg border border-zinc-700 px-6 py-3 font-semibold text-zinc-100 transition hover:border-cyan-300 hover:text-cyan-300"
+              >
+                Contact Me
+              </a>
+            </div>
+          </MotionReveal>
+        </section>
+
+        <section id="about" className="scroll-mt-24 py-16">
+          <MotionReveal>
+            <SectionHeading
+              title="About Me"
+              subtitle="I craft scalable web products with strong attention to user experience, performance, and maintainable code."
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+            <div className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 leading-relaxed text-zinc-300">
+              <p>
+                I am a web developer who enjoys building polished user interfaces backed by solid APIs
+                and clean database design. My approach balances rapid delivery with long-term code
+                quality, making products easier to ship and easier to maintain.
+              </p>
+            </div>
+          </MotionReveal>
+        </section>
+
+        <section id="projects" className="scroll-mt-24 py-16">
+          <SectionHeading
+            title="Projects"
+            subtitle="Selected work showcasing full-stack development, design detail, and real-world product thinking."
+          />
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {projects.map((project, index) => (
+              <MotionReveal
+                key={project.title}
+                delay={index * 0.1}
+                className="flex h-full flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6"
+              >
+                <h3 className="text-xl font-semibold text-white">{project.title}</h3>
+                <p className="mt-3 flex-1 text-zinc-300">{project.description}</p>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {project.techStack.map((tech) => (
+                    <li
+                      key={tech}
+                      className="rounded-full border border-zinc-700 px-3 py-1 text-xs text-zinc-300"
+                    >
+                      {tech}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-6 flex gap-4 text-sm">
+                  <a
+                    href={project.links.live}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-semibold text-cyan-300 transition hover:text-cyan-200"
+                  >
+                    Live Demo
+                  </a>
+                  <a
+                    href={project.links.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-semibold text-cyan-300 transition hover:text-cyan-200"
+                  >
+                    Source
+                  </a>
+                </div>
+              </MotionReveal>
+            ))}
+          </div>
+        </section>
+
+        <section id="skills" className="scroll-mt-24 py-16">
+          <SectionHeading
+            title="Skills"
+            subtitle="Technologies and tools I use to design, build, and deploy reliable web products."
+          />
+          <div className="grid gap-6 md:grid-cols-3">
+            {skillGroups.map((group, index) => (
+              <MotionReveal
+                key={group.title}
+                delay={index * 0.1}
+                className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6"
+              >
+                <h3 className="text-lg font-semibold text-white">{group.title}</h3>
+                <ul className="mt-4 space-y-2 text-zinc-300">
+                  {group.skills.map((skill) => (
+                    <li key={skill}>- {skill}</li>
+                  ))}
+                </ul>
+              </MotionReveal>
+            ))}
+          </div>
+        </section>
+
+        <section id="contact" className="scroll-mt-24 py-16">
+          <MotionReveal>
+            <SectionHeading
+              title="Contact"
+              subtitle="Have an idea or opportunity? Send a message and I will get back to you."
+            />
+            <ContactForm />
+          </MotionReveal>
+        </section>
       </main>
+
+      <footer className="border-t border-zinc-800 py-8">
+        <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-3 px-6 text-sm text-zinc-400 sm:flex-row">
+          <p>
+            © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+          </p>
+          <div className="flex gap-4">
+            <a
+              href={siteConfig.socials.github}
+              className="font-medium text-zinc-300 transition hover:text-cyan-300"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+            <a
+              href={siteConfig.socials.linkedin}
+              className="font-medium text-zinc-300 transition hover:text-cyan-300"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
