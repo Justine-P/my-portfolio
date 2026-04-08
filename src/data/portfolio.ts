@@ -15,33 +15,23 @@ export const siteConfig = {
 
 export const projects = [
   {
-    title: "TaskFlow",
+    title: "To-Do List App",
     description:
-      "A collaborative task manager with real-time updates, role-based access, and analytics dashboards.",
-    techStack: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS"],
+      "A task management app for creating, organizing, and tracking daily tasks with clean UX and responsive design.",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Neon PostgreSQL"],
     links: {
-      live: "https://example.com/taskflow",
-      github: "https://github.com/justinecamello/taskflow",
+      live: "https://example.com/todo-list",
+      github: "https://github.com/Justine-P/todo-list",
     },
   },
   {
-    title: "Shoply",
+    title: "School Monitoring System",
     description:
-      "An e-commerce storefront with server-rendered catalog pages, cart persistence, and secure checkout.",
-    techStack: ["React", "Node.js", "Stripe", "Prisma"],
+      "A web system for monitoring student performance, attendance, and records with role-based dashboards for staff.",
+    techStack: ["Next.js", "Node.js", "PostgreSQL", "Tailwind CSS"],
     links: {
-      live: "https://example.com/shoply",
-      github: "https://github.com/justinecamello/shoply",
-    },
-  },
-  {
-    title: "InsightBoard",
-    description:
-      "A metrics platform that visualizes product and marketing KPIs through interactive charts and reports.",
-    techStack: ["Next.js", "Neon", "Framer Motion", "Recharts"],
-    links: {
-      live: "https://example.com/insightboard",
-      github: "https://github.com/justinecamello/insightboard",
+      live: "https://example.com/school-monitoring-system",
+      github: "https://github.com/Justine-P/school-monitoring-system",
     },
   },
 ];

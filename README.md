@@ -1,13 +1,12 @@
 # Justine Camello - Developer Portfolio
 
-A modern, responsive developer portfolio built with Next.js App Router, Tailwind CSS, Framer Motion, and Neon PostgreSQL for contact form submissions.
+A modern, responsive developer portfolio built with Next.js App Router, Tailwind CSS, and Framer Motion.
 
 ## Tech Stack
 
 - Next.js (App Router)
 - Tailwind CSS
 - Framer Motion
-- Neon PostgreSQL
 - TypeScript
 
 ## Folder Structure
@@ -55,15 +54,7 @@ On Windows PowerShell:
 Copy-Item .env.example .env.local
 ```
 
-3. Add your Neon connection string in `.env.local`:
-
-```env
-DATABASE_URL="postgresql://<user>:<password>@<host>/<database>?sslmode=require"
-```
-
-4. Create the database table in Neon using `db/schema.sql`.
-
-5. Run the dev server:
+3. Run the dev server:
 
 ```bash
 npm run dev
@@ -71,29 +62,15 @@ npm run dev
 
 Open `http://localhost:3000`.
 
-## Environment Variables
+## Contact Form
 
-- `DATABASE_URL`: Neon PostgreSQL connection string used by `src/app/api/contact/route.ts`.
-
-## Contact Form Database Schema
-
-Run this SQL in your Neon database:
-
-```sql
-CREATE TABLE IF NOT EXISTS contact_submissions (
-  id BIGSERIAL PRIMARY KEY,
-  name VARCHAR(100) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  message TEXT NOT NULL,
-  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-```
+- `POST /api/contact` validates and accepts form submissions.
+- In no-database mode, submissions are acknowledged by the API and logged on the server.
 
 ## Deployment (Vercel)
 
 1. Push project to GitHub.
 2. Import repository in Vercel.
-3. Add `DATABASE_URL` in Vercel project settings.
-4. Deploy.
+3. Deploy.
 
 This project is production-ready for Vercel with serverless API routes.

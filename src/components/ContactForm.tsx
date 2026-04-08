@@ -49,7 +49,10 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6">
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-5 rounded-3xl border border-white/10 bg-zinc-900/65 p-7 shadow-[0_24px_60px_-30px_rgba(6,182,212,0.45)] backdrop-blur"
+    >
       <div>
         <label htmlFor="name" className="mb-2 block text-sm font-medium text-zinc-200">
           Name
@@ -59,7 +62,7 @@ export default function ContactForm() {
           required
           value={formData.name}
           onChange={(event) => setFormData({ ...formData, name: event.target.value })}
-          className="w-full rounded-lg border border-zinc-700 bg-zinc-950 px-4 py-2.5 text-zinc-100 outline-none transition focus:border-cyan-400"
+          className="w-full rounded-xl border border-zinc-700/80 bg-zinc-950/80 px-4 py-2.5 text-zinc-100 outline-none transition duration-300 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20"
           placeholder="Your name"
         />
       </div>
@@ -73,7 +76,7 @@ export default function ContactForm() {
           required
           value={formData.email}
           onChange={(event) => setFormData({ ...formData, email: event.target.value })}
-          className="w-full rounded-lg border border-zinc-700 bg-zinc-950 px-4 py-2.5 text-zinc-100 outline-none transition focus:border-cyan-400"
+          className="w-full rounded-xl border border-zinc-700/80 bg-zinc-950/80 px-4 py-2.5 text-zinc-100 outline-none transition duration-300 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20"
           placeholder="you@example.com"
         />
       </div>
@@ -87,14 +90,14 @@ export default function ContactForm() {
           required
           value={formData.message}
           onChange={(event) => setFormData({ ...formData, message: event.target.value })}
-          className="w-full rounded-lg border border-zinc-700 bg-zinc-950 px-4 py-2.5 text-zinc-100 outline-none transition focus:border-cyan-400"
+          className="w-full rounded-xl border border-zinc-700/80 bg-zinc-950/80 px-4 py-2.5 text-zinc-100 outline-none transition duration-300 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20"
           placeholder="Tell me about your project..."
         />
       </div>
       <button
         type="submit"
         disabled={loading}
-        className="inline-flex items-center rounded-lg bg-cyan-400 px-5 py-2.5 font-semibold text-zinc-950 transition hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-60"
+        className="inline-flex items-center rounded-xl bg-gradient-to-r from-cyan-300 to-violet-300 px-5 py-2.5 font-semibold text-zinc-950 transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-15px_rgba(165,180,252,0.8)] disabled:cursor-not-allowed disabled:opacity-60"
       >
         {loading ? "Sending..." : "Send Message"}
       </button>
